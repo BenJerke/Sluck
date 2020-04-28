@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/BenJerke/Sluck#readme",
   "dependencies": {
+    "mongoose": "^5.9.10",
+    "react": "^16.13.1"
     "express": "^4.17.1",
-    "mongoose": "^5.9.10"
   }
 }
