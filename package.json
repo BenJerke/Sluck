@@ -1,0 +1,24 @@
+{
+  "name": "Sluck",
+  "version": "1.0.0",
+  "description": "this is where the read me goes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenJerke/Sluck.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BenJerke/Sluck/issues"
+  },
+  "homepage": "https://github.com/BenJerke/Sluck#readme",
+  "dependencies": {
+    "mongoose": "^5.9.10",
+    "react": "^16.13.1"
+  }
+}
