@@ -2,7 +2,7 @@ const db = require ("../models");
 
 module.exports = {
 
-    findChannelById: function (req, res){
+    findById: function (req, res){
         db.Channel
         .find(req.params.id)
         .then(dbModel => res.json(dbModel))
