@@ -26,8 +26,8 @@ const userSchema = new Schema ({
 
     },
 
-    directMessages {
+    directMessages: {
         type: Array
-    }
+    },
 
 });
