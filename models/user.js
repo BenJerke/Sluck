@@ -23,7 +23,6 @@ const UserSchema = new Schema ({
 
     channels: {
         type: Array
-
     },
 
     directMessages: {
@@ -31,11 +30,8 @@ const UserSchema = new Schema ({
     },
 
     posts: {
-        type: Array
-        
-    }
-
-
+        type: Array 
+    },
 });
 
 const User = mongoose.model("User", UserSchema);
