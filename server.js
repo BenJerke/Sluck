@@ -6,6 +6,9 @@ const http = require("http").Server(app);
 const io = require('socket.io')(http);
 //const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
+const db = require("./models")
+
+
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -20,7 +23,23 @@ if (process.env.NODE_ENV === "production") {
 //app.use(routes);
 
 // Connect to DB
-//mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
+
+//database operations
+
+//create new user
+//db.User.create({});
+
+//create new channel
+//db.Channel.create({});
+
+//create new post
+//db.Post.create({});
+
+//create new DM
+//db.Message.create({});
+
 
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/public/index.html"));

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema ({
+const UserSchema = new Schema ({
     username: {
         type: String, 
         required: true
@@ -23,11 +23,20 @@ const userSchema = new Schema ({
 
     channels: {
         type: Array
-
     },
 
     directMessages: {
         type: Array
     },
 
+    posts: {
+        type: Array 
+    },
 });
+
+const User = mongoose.model("User", UserSchema);
+
+module.exports = User;
+
+
+
