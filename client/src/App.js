@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:3002');
+const socket = require('socket.io-client')('http://localhost:3002');
+socket.on("kark", msg => console.log("The backend says " + msg + "."));
 
 class App extends Component {
   componentDidMount() {
-    console.log("hi");
+    socket.emit("kark", "hi");
   };
 
   render() {
