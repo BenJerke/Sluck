@@ -97,8 +97,7 @@ class Login extends React.Component {
             className='d-flex justify-content-center align-items-center w-100 mt-5'
             style={{
               minHeight: '100%',
-              backgroundColor: '#F5F5DC',
-              fontSize: 30,
+              fontSize: 15,
             }}
           >
           <Col>
@@ -113,7 +112,7 @@ class Login extends React.Component {
             )}
             <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId='username'>
-                <Form.Label>User ID</Form.Label>
+                <Form.Label>User ID{"\n"}</Form.Label>
                 <Form.Control
                   required
                   type='text'
@@ -132,7 +131,7 @@ class Login extends React.Component {
                 )}
                 </Form.Group>
                   <Form.Group controlId='display-name'>
-                    <Form.Label>Name</Form.Label>
+                    <Form.Label>Name{"\n"}</Form.Label>
                     <Form.Control
                       required
                       type='text'
@@ -143,7 +142,7 @@ class Login extends React.Component {
                     />
                   </Form.Group>
                   <Form.Group controlId='email'>
-                    <Form.Label>Email Address</Form.Label>
+                    <Form.Label>Email Address{"\n"}</Form.Label>
                     <Form.Control
                       required
                       type='email'

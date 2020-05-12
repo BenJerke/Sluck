@@ -49,8 +49,8 @@ class Home extends React.Component {
         className='d-flex justify-content-center align-items-center w-100 mt-5'
         style={{
           minHeight: '100%',
-          backgroundColor: '#F5F5DC',
-          fontSize: 30,
+          textAlign: "center",
+          fontSize: 15,
 
           
         }}
@@ -76,7 +76,7 @@ class Home extends React.Component {
               type='submit'
               className='btn-block'
               style={{
-                
+
               }}
             >
               {this.state.isLoading ? (
