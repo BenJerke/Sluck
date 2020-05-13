@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert'
 import Spinner from 'react-bootstrap/Spinner'
 import { Redirect, Link } from 'react-router-dom'
+import "./login.css"
 
 class Login extends React.Component {
     constructor(props) {
@@ -95,6 +96,7 @@ class Login extends React.Component {
         <React.Fragment>
           <Row
             className='d-flex justify-content-center align-items-center w-100 mt-5'
+            className='userId'
             style={{
               minHeight: '100%',
               fontSize: 15,
@@ -112,7 +114,7 @@ class Login extends React.Component {
             )}
             <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId='username'>
-                <Form.Label>User ID{"\n"}</Form.Label>
+                <Form.Label >User ID{"\n"}</Form.Label>
                 <Form.Control
                   required
                   type='text'

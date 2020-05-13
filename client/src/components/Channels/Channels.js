@@ -8,6 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Redirect } from 'react-router-dom';
 import { CometChat } from '@cometchat-pro/chat';
 import { v1 as uuid} from 'uuid';
+import "./channels.css"
 
 class Channels extends React.Component {
     constructor(props) {
