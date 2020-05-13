@@ -123,7 +123,8 @@ class Login extends React.Component {
                 />
                 {this.state.UIDError !== null && (
                   <Form.Control.Feedback
-                    style={{ display: 'block' }}
+                    style={{ display: 'block'
+                  }}
                     type='invalid'
                   >
                     {this.state.UIDError}

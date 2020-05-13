@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import  Channels  from "./components/Channels";
-import  Home  from "./components/Home";
-import Login  from "./components/Login";
+import  Channels  from "./components/Channels/Channels";
+import  Home  from "./components/Home/Home";
+import Login  from "./components/Login/Login";
 
 function App () {
   return (
