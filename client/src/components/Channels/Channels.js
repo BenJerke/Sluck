@@ -21,7 +21,7 @@ class Channels extends React.Component {
             messages:[],
             authToken:null,
             messageType: CometChat.MESSAGE_TYPE.TEXT,
-            receiverType: CometChat.RECEIVER_TYPE.GROUP
+            receiverType: CometChat.RECEIVER_TYPE.GROUP,
         };
     }
 
@@ -124,16 +124,14 @@ class Channels extends React.Component {
             <div>
                 <Row>
                     <Col>
-                    <Container>
+                    <Container
+                    className="Logout">
                     <div className='d-flex align-items-center justify-content-between'>
                     <h3 className='text-center py-3 d-inline'>
                         
                     </h3>
-                    <Button onClick={e => this.logout()} variant='outline-primary'>
-                        Logout{"\n"}
-                    </Button>
                     </div>
-                    <ul className='list-group' style={{ marginBottom: '60px' }}>
+                    <ul className='list-group' style={{ marginBottom: '500px' }}>
                     {this.state.messages.length > 0 ? (
                         this.state.messages.map(msg => (
                         <li className='list-group-item' key={uuid()}>
@@ -142,35 +140,31 @@ class Channels extends React.Component {
                         </li>
                         ))
                     ) : (
-                        <div className='text-center mt-5 pt-5'>
-                        <p className='lead text-center'></p>
+                        <div className=''>
+                        <p className=''></p>
                         </div>
                     )}
                     </ul>
-
                     </Container>
                     </Col>
                 </Row>
                 <Navbar fixed='bottom'>
                 <Container>
                 <Form
-                    inline
-                    className='w-100 d-flex justify-content-between align-items-center'
+                    className=''
                     onSubmit={this.sendMessage}
                 >
-                    <Form.Group style={{ flex: 1 }}>
+                    <Form.Group>
                     <Form.Control
+                        className="text"
                         value={this.state.messageText}
-                        style={{ width: '50%',
-                        backgroundColor: '#F5F5DC',
-                        fontSize: 30}}
                         required
                         type='text'
                         placeholder='Type Message here...'
                         onChange={this.handleChange}
                     />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
+                    <Button variant='primary' type='submit' className="send">
                     Send
                     </Button>
                 </Form>
