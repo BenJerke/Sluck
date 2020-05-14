@@ -4,7 +4,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const http = require("http").Server(app);
 const io = require('socket.io')(http);
-//const routes = require("./routes");
+const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const db = require("./models")
 
@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to DB
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/");
 
 //database operations
 
@@ -45,7 +45,12 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
-io.on("connection", socket => console.log("A user connected."));
+io.on("connection", socket => {
+  console.log("A user connected.");
+  socket.on("disconnect", () => console.log("A user disconnected."));
+  socket.on("kark", msg => console.log("The frontend says " + msg + "."));
+  io.emit("kark", "hi");
+});
 io.listen(3002);
 
 // Start the API server
