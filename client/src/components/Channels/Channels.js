@@ -148,7 +148,7 @@ class Channels extends React.Component {
                     </Container>
                     </Col>
                 </Row>
-                <Navbar fixed='bottom'>
+                <Navbar>
                 <Container>
                 <Form
                     className=''
