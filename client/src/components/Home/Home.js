@@ -60,7 +60,10 @@ class Home extends React.Component {
             <Alert variant='danger'>{this.state.error}</Alert>
           )}
           <Form onSubmit={this.handleSubmit}>
-            <Form.Group controlId='username'>
+            <Form.Group controlId='username'
+            style={{
+              padding: 3
+            }}>
               <Form.Label>Username{"\n"}</Form.Label>
               <Form.Control
                 required
