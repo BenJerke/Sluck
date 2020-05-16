@@ -94,10 +94,18 @@ class Login extends React.Component {
 
       return (
         <React.Fragment>
+        <header
+        style={{
+          fontSize: 40,
+          fontFamily: "Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif",
+          padding: 10
+        }}>
+          Sign Up
+        </header>
           <Row
             className='d-flex justify-content-center align-items-center w-100 mt-5'
             style={{
-              minHeight: '25%',
+              minHeight: '10%',
               fontSize: 15,
               }}
           >
@@ -137,7 +145,7 @@ class Login extends React.Component {
                 </Form.Group>
                   <Form.Group controlId='display-name'
                    style={{
-                    padding: 3
+                    padding: 6
                   }}>
                     <Form.Label>Name{"\n"}</Form.Label>
                     <Form.Control
@@ -151,7 +159,7 @@ class Login extends React.Component {
                   </Form.Group>
                   <Form.Group controlId='email'
                   style={{
-                    padding: 3
+                    padding: 6
                   }}> 
                     <Form.Label>Email Address{"\n"}</Form.Label>
                     <Form.Control
@@ -166,7 +174,7 @@ class Login extends React.Component {
 
                   <Form.Group
                   style={{
-                  padding: 3
+                  padding: 6
                   }}>
                   <Form.Label>Password{"\n"}</Form.Label>
                   <Form.Control
@@ -180,7 +188,7 @@ class Login extends React.Component {
                   </Form.Group>
                   <Form.Group
                   style={{
-                  padding: 5
+                  padding: 6
                   }}>
                   <Form.Label>Confirm Password{"\n"}</Form.Label>
                   <Form.Control
