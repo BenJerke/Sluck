@@ -2,6 +2,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert'
 import Spinner from 'react-bootstrap/Spinner'
@@ -69,7 +70,7 @@ class Home extends React.Component {
                 required
                 type='text'
                 value={this.state.username}
-                placeholder='Enter a Username'
+                placeholder='Enter your Username'
                 onChange={this.handleChange}
               />
             </Form.Group>
@@ -79,7 +80,7 @@ class Home extends React.Component {
               type='submit'
               className='btn-block'
               style={{
-
+                
               }}
             >
               {this.state.isLoading ? (
@@ -110,6 +111,8 @@ class Home extends React.Component {
           </Form>
         </Col>
       </Row>  
+      <footer>
+      </footer>
               </div>
           )
       }
