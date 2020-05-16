@@ -96,11 +96,10 @@ class Login extends React.Component {
         <React.Fragment>
           <Row
             className='d-flex justify-content-center align-items-center w-100 mt-5'
-            className='userId'
             style={{
-              minHeight: '100%',
+              minHeight: '25%',
               fontSize: 15,
-            }}
+              }}
           >
           <Col>
             {this.state.errors !== null && (
@@ -113,7 +112,10 @@ class Login extends React.Component {
               </Alert>
             )}
             <Form onSubmit={this.handleSubmit}>
-              <Form.Group controlId='username'>
+              <Form.Group controlId='username'
+              style={{
+                
+              }}>
                 <Form.Label >User ID{"\n"}</Form.Label>
                 <Form.Control
                   required
@@ -125,7 +127,7 @@ class Login extends React.Component {
                 />
                 {this.state.UIDError !== null && (
                   <Form.Control.Feedback
-                    style={{ display: 'block'
+                    style={{ display: 'block',
                   }}
                     type='invalid'
                   >
@@ -133,7 +135,10 @@ class Login extends React.Component {
                   </Form.Control.Feedback>
                 )}
                 </Form.Group>
-                  <Form.Group controlId='display-name'>
+                  <Form.Group controlId='display-name'
+                   style={{
+                    
+                  }}>
                     <Form.Label>Name{"\n"}</Form.Label>
                     <Form.Control
                       required
@@ -144,7 +149,10 @@ class Login extends React.Component {
                       onChange={this.handleChange}
                     />
                   </Form.Group>
-                  <Form.Group controlId='email'>
+                  <Form.Group controlId='email'
+                  style={{
+                    
+                  }}> 
                     <Form.Label>Email Address{"\n"}</Form.Label>
                     <Form.Control
                       required
@@ -155,6 +163,29 @@ class Login extends React.Component {
                       onChange={this.handleChange}
                     />
                   </Form.Group>
+                  <Form.Group>
+                  <Form.Label>Password{"\n"}</Form.Label>
+                  <Form.Control
+                  required
+                  type='password'
+                  name='password'
+                  value={this.state.password}
+                  placeholder='Choose a password'
+                  onChange={this.handleChange}
+                  />
+                  </Form.Group>
+                  <Form.Group>
+                  <Form.Label>ConfirmPassword{"\n"}</Form.Label>
+                  <Form.Control
+                  required
+                  type='passwordConfirm'
+                  name='passwordConfirm'
+                  value={this.state.passwordConfirm}
+                  placeholder='Re-enter your password'
+                  onChange={this.handleChange}
+                  />
+                  </Form.Group>
+
                   <Button
                     disabled={this.state.isLoading}
                     variant='primary'
