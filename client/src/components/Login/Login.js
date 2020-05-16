@@ -114,7 +114,7 @@ class Login extends React.Component {
             <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId='username'
               style={{
-                
+                padding: 3
               }}>
                 <Form.Label >User ID{"\n"}</Form.Label>
                 <Form.Control
@@ -137,7 +137,7 @@ class Login extends React.Component {
                 </Form.Group>
                   <Form.Group controlId='display-name'
                    style={{
-                    
+                    padding: 3
                   }}>
                     <Form.Label>Name{"\n"}</Form.Label>
                     <Form.Control
@@ -151,7 +151,7 @@ class Login extends React.Component {
                   </Form.Group>
                   <Form.Group controlId='email'
                   style={{
-                    
+                    padding: 3
                   }}> 
                     <Form.Label>Email Address{"\n"}</Form.Label>
                     <Form.Control
@@ -163,7 +163,11 @@ class Login extends React.Component {
                       onChange={this.handleChange}
                     />
                   </Form.Group>
-                  <Form.Group>
+
+                  <Form.Group
+                  style={{
+                  padding: 3
+                  }}>
                   <Form.Label>Password{"\n"}</Form.Label>
                   <Form.Control
                   required
@@ -174,7 +178,10 @@ class Login extends React.Component {
                   onChange={this.handleChange}
                   />
                   </Form.Group>
-                  <Form.Group>
+                  <Form.Group
+                  style={{
+                  padding: 5
+                  }}>
                   <Form.Label>Confirm Password{"\n"}</Form.Label>
                   <Form.Control
                   required
