@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert'
 import Spinner from 'react-bootstrap/Spinner'
@@ -44,16 +43,18 @@ class Home extends React.Component {
           return (
           <Redirect to={{ pathname: '/channels', user: this.state.user}} /> 
           );
-          return(
-              <div>
+        return(
+            <div>
                 <header
                 style={{
                   fontSize: 40,
                   padding: 2,
-                  fontFamily: "Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif"
+                  fontFamily: "Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif",
+                
                 }}>
-                  Welcome!
+                 Welcome
                 </header>
+         
                 <Row
         className='d-flex justify-content-center align-items-center w-100 mt-5'
         style={{
@@ -125,8 +126,9 @@ class Home extends React.Component {
       <footer>
       </footer>
               </div>
-          )
-      }
+        )
+    }
 }
+
 
 export default Home;

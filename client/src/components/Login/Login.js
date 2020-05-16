@@ -124,7 +124,7 @@ class Login extends React.Component {
               style={{
                 padding: 6
               }}>
-                <Form.Label >User ID:{"\n"}</Form.Label>
+                <Form.Label >Username{"\n"}</Form.Label>
                 <Form.Control
                   required
                   type='text'
@@ -142,20 +142,7 @@ class Login extends React.Component {
                     {this.state.UIDError}
                   </Form.Control.Feedback>
                 )}
-                </Form.Group>
-                  <Form.Group controlId='display-name'
-                   style={{
-                    padding: 6
-                  }}>
-                    <Form.Label>Name:{"\n"}</Form.Label>
-                    <Form.Control
-                      required
-                      type='text'
-                      name='name'
-                      value={this.state.name}
-                      placeholder='What is your name?'
-                      onChange={this.handleChange}
-                    />
+
                   </Form.Group>
                   <Form.Group controlId='email'
                   style={{
