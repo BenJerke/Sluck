@@ -95,6 +95,7 @@ class Login extends React.Component {
       return (
         <React.Fragment>
         <header
+        className="signup bounce-5"
         style={{
           fontSize: 40,
           fontFamily: "Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif",
