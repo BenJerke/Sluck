@@ -74,7 +74,7 @@ class Home extends React.Component {
             style={{padding: 10,
             }}>
               <Form.Label>Username{"\n"}</Form.Label>
-              
+              <br></br>
 
               <Form.Control
                 required
