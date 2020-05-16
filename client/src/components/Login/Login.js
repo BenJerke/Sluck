@@ -175,7 +175,7 @@ class Login extends React.Component {
                   />
                   </Form.Group>
                   <Form.Group>
-                  <Form.Label>ConfirmPassword{"\n"}</Form.Label>
+                  <Form.Label>Confirm Password{"\n"}</Form.Label>
                   <Form.Control
                   required
                   type='passwordConfirm'
