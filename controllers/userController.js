@@ -22,7 +22,7 @@ module.exports = {
         if (req.body.email &&
             req.body.username &&
             req.body.password &&
-            req.body.passwordConf){
+            req.body.passwordConf && (req.body.password === req.body.passwordConf)){
           
             var userData = {
               email: req.body.email,
@@ -36,7 +36,9 @@ module.exports = {
             .create(userData)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err))
-        }
+        } else {
+            res.send("Passwords don't match.")
+        }   
     },
 
     update: function (req, res){
