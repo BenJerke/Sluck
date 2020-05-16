@@ -46,6 +46,14 @@ class Home extends React.Component {
           );
           return(
               <div>
+                <header
+                style={{
+                  fontSize: 40,
+                  padding: 2,
+                  fontFamily: "Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif"
+                }}>
+                  Welcome!
+                </header>
                 <Row
         className='d-flex justify-content-center align-items-center w-100 mt-5'
         style={{
@@ -63,11 +71,10 @@ class Home extends React.Component {
 
           <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId='username'
-            style={{
+            style={{padding: 10,
             }}>
               <Form.Label>Username{"\n"}</Form.Label>
               
-              <br></br>
 
               <Form.Control
                 required
