@@ -6,7 +6,9 @@ import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert'
 import Spinner from 'react-bootstrap/Spinner'
 import { Redirect, Link } from 'react-router-dom'
-import { CometChat } from '@cometchat-pro/chat';
+import { CometChat } from '@cometchat-pro/chat'
+import "./home.css"
+
 
 
 class Home extends React.Component {
@@ -46,15 +48,10 @@ class Home extends React.Component {
         return(
             <div>
                 <header
-                style={{
-                  fontSize: 40,
-                  padding: 2,
-                  fontFamily: "Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif",
-                
-                }}>
+                className="header bounce-5">
+
                  Welcome
                 </header>
-         
                 <Row
         className='d-flex justify-content-center align-items-center w-100 mt-5'
         style={{
@@ -73,6 +70,7 @@ class Home extends React.Component {
           <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId='username'
             style={{padding: 10,
+              fontFamily: "Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif"
             }}>
               <Form.Label>Username{"\n"}</Form.Label>
               <br></br>
