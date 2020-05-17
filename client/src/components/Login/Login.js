@@ -133,7 +133,9 @@ class Login extends React.Component {
                   value={this.state.uid}
                   placeholder='Choose a username'
                   onChange={this.handleChange}
+                
                 />
+                <span></span>
                 {this.state.UIDError !== null && (
                   <Form.Control.Feedback
                     style={{ display: 'block',
@@ -158,6 +160,7 @@ class Login extends React.Component {
                       placeholder='Your email address'
                       onChange={this.handleChange}
                     />
+                    <span></span>
                   </Form.Group>
 
                   <Form.Group
@@ -173,6 +176,7 @@ class Login extends React.Component {
                   placeholder='Choose a password'
                   onChange={this.handleChange}
                   />
+                  <span></span>
                   </Form.Group>
                   <Form.Group
                   style={{
@@ -187,6 +191,7 @@ class Login extends React.Component {
                   placeholder='Re-enter your password'
                   onChange={this.handleChange}
                   />
+                  <span></span>
                   </Form.Group>
 
                   <Button
