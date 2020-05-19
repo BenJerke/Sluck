@@ -6,7 +6,7 @@ You can sign up with any name you want. Create channels, invite users to join th
 This app uses socket.io to facilitate superfast communication with the database. You can spam with it, it's awesome. 
 
 ##SLUCK IS SECURE!
-We store hashed passwords so nobody can raid our database. That's 
+We store hashed passwords so nobody can raid our database. If they do we'll tell Mom.
 
 ##SLUCK IS SLICK!
 We've got a front end based on React; a tool built by Mark Zuckerberg built himself! It looks cool and it's fun!
