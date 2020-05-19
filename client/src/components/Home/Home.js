@@ -82,6 +82,22 @@ class Home extends React.Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
+
+            <Form.Group controlId='password'
+            style={{padding: 10,
+              fontFamily: "Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif"
+            }}>
+              <Form.Label>Password{"\n"}</Form.Label>
+              <br></br>
+
+              <Form.Control
+                required
+                type='text'
+                value={this.state.password}
+                placeholder='Enter your password'
+                onChange={this.handleChange}
+              />
+            </Form.Group>
           
             <Button
               disabled={this.state.isLoading}
