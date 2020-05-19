@@ -24,12 +24,9 @@ class Home extends React.Component {
   
   componentDidMount = () => {
     socket.on("login", res => {
-      if(res === "1"){
-        this.setState({redirect: true});
-      }
-      else{
-        alert(res);
-      };
+      if(res === "User not found." || res === "Wrong password, idiot.") alert(res)
+      else { console.log(res);}
+        //this.setState({redirect: true})};
     });
   };
 
