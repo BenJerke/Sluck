@@ -56,8 +56,8 @@ UserSchema.pre('save', function (next) {
   });
 
 //authenticate input against database
-UserSchema.statics.authenticate = function (email, password, callback) {
-    User.findOne({ email: email })
+UserSchema.statics.authenticate = function (username, password, callback) {
+    User.findOne({ username: username })
       .exec(function (err, user) {
         if (err) {
           return callback(err)
