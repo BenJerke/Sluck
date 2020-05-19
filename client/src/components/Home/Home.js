@@ -49,7 +49,6 @@ class Home extends React.Component {
             <div>
                 <header
                 className="header bounce-5">
-
                  Welcome
                 </header>
                 <Row
@@ -121,9 +120,7 @@ class Home extends React.Component {
           </Form>
         </Col>
       </Row>  
-      <footer>
-      </footer>
-              </div>
+          </div>
         )
     }
 }
