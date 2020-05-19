@@ -3,12 +3,12 @@ const router = require("express").Router();
 const usersController = require("../../controllers/userController");
 
 router.route("/")
-    .get(usersController.findAll) //username already taken
-    .post(usersController.create); //sign up
+    .get(usersController.findAllUsers) //username already taken
+    .post(usersController.createUser); //sign up
 
 router.route("/:id")
-    .get(usersController.findById) //log in
-    .put(usersController.update) //update password/ whatever
-    .delete(usersController.delete); //delete account
+    .get(usersController.findUserById) //log in
+    .put(usersController.updateUser) //update password/ whatever
+    .delete(usersController.deleteUser); //delete account
 
 module.exports = router;

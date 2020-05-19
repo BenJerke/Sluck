@@ -9,6 +9,7 @@ import { Redirect } from 'react-router-dom';
 import { CometChat } from '@cometchat-pro/chat';
 import { v1 as uuid} from 'uuid';
 import "./channels.css"
+const socket = require('socket.io-client')('http://localhost:3002');
 
 class Channels extends React.Component {
     constructor(props) {
@@ -90,6 +91,10 @@ class Channels extends React.Component {
 
       handleChange = e => {
         this.setState({ messageText: e.target.value });
+        const username = this.state.user;
+        const body = this.state.messageText;
+        const channel = this.state.channel
+        socket.emit("message", username, body, channel);
       };
 
       receiveMessages = () => {

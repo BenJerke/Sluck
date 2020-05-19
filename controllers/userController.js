@@ -1,7 +1,8 @@
 const db = require ("../models")
 
+
 module.exports = {
-    findAll: function(req, res) {
+    findAllUsers: function(req, res) {
         console.log("finding all users");
         db.User
             .find(req.query)
@@ -9,7 +10,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     
-    findById: function (req, res){
+    findUserById: function (req, res){
         console.log("finding user by id");
         db.User
             .find(req.params.id)
@@ -17,7 +18,7 @@ module.exports = {
             .catch(err => res.status(422).json(err))
     },
 
-    create: function(req, res){
+    createUser: function(req, res){
 
         if (req.body.email &&
             req.body.username &&
@@ -41,7 +42,35 @@ module.exports = {
         }   
     },
 
-    update: function (req, res){
+    login: function(req , res){
+        if (req.body.username && 
+            req.body.password){
+
+        let userLogin = req.body.username;
+
+        db.User.findOne({ username: userLogin })
+        .exec(function (err, user) {
+          if (err) {
+            return callback(err)
+          } else if (!user) {
+            var err = new Error('User not found.');
+            err.status = 401;
+            return callback(err);
+          }
+          bcrypt.compare(password, user.password, function (err, result) {
+            if (result === true) {
+              return callback(null, user);
+            } else {
+              return callback();
+            }
+          })
+        });
+        } else {
+            res.status(422).send("Please enter a username and password.")
+        };
+    }, 
+
+    updateUser: function (req, res){
         console.log("updating user")
         db.User
             .findOneAndUpdate({_id: req.params.id}, req.body)
@@ -49,7 +78,7 @@ module.exports = {
             .catch(err => res.status(422).json(err))
     },
 
-    delete: function (req, res){
+    deleteUser: function (req, res){
         console.log("deleting user")
         db.User
             .findById({ _id: req.params.id})

@@ -35,6 +35,10 @@ class Login extends React.Component {
     socket.emit("signup", name, password, passwordConfirm, email);
   };
 
+  
+
+
+
   showErrors = () => {
     const errors = this.state.errors;
     let errorMessages = [];
