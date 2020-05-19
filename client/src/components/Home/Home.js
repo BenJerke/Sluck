@@ -20,15 +20,22 @@ class Home extends React.Component {
       redirect: false,
       isLoading: false
     };
-  }
+  };
   
   componentDidMount = () => {
     socket.on("login", res => {
-      if(res === "User not found." || res === "Wrong password, idiot.") alert(res)
-      else { console.log(res);}
-        //this.setState({redirect: true})};
+      if(res === "User not found." || res === "Wrong password, idiot.") {
+        alert(res);
+        this.refreshPage(true);
+      }
+      else 
+      { console.log(res); this.setState({redirect: true})}
     });
-  };
+  }
+
+  refreshPage() {
+    window.location.reload(false);
+  }
 
   handleChange = e => {
     this.setState({ username: e.target.value });

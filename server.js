@@ -9,11 +9,6 @@ const io = require('socket.io')(http);
 const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const db = require("./models");
-const controllers = require ("./controllers")
-
-const userFunctions = controllers.UserController;
-
-const authenticator = db.UserSchema.authenticate()
 
 
 // Middleware
@@ -44,14 +39,16 @@ app.get("/", function (req, res) {
 io.on("connection", socket => {
   console.log("A user connected.");
   socket.on("disconnect", () => console.log("A user disconnected."));
-
   socket.on("login", (username, password) => {
-    db.User.findOne({ username: username }).then(res => {
-      if (!res) io.emit("login", "User not found.")
-      else if (res.password === password) io.emit("login", res._id)
-      else io.emit("login", "Wrong password, idiot.");
-    }).catch(err => console.log(err));
-
+      db.User.findOne({ username: username }).then(function (res) {
+        if (!res) { io.emit("login", "User not found.")} 
+        else {bcrypt.compare(password, res.password, function (err, result) { 
+              if (result===true) {io.emit("login", res._id); console.log("logged in")}
+              else if (result===false){ io.emit("login", "Wrong password, idiot.")} 
+              else {console.log(err)}
+        }
+      )};
+    });
   });
 
   socket.on("signup", (username, password, passwordConf, email) => {
@@ -61,7 +58,18 @@ io.on("connection", socket => {
       }).catch(err => console.log(err))
     } else console.log("Passwords don't match.");
   });
+  
+  socket.on("message", (username, body, channel) => {
+    if (username && body && channel){
+      db.Post.create({author: username, body: body, location: channel}).then(res => {
+        console.log(res);
+      }).catch(err => console.log(err))
+    } else console.log("Wait, what? You're not supposed to do that. Get outta here!");
+  });
 });
+
+
+
 io.listen(3002);
 
 // Start the API server
