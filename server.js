@@ -9,6 +9,11 @@ const io = require('socket.io')(http);
 const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const db = require("./models");
+const controllers = require ("./controllers")
+
+const userFunctions = controllers.UserController;
+
+const authenticator = db.UserSchema.authenticate()
 
 
 // Middleware
@@ -29,7 +34,6 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to DB
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slcukdb");
 
 
@@ -41,12 +45,17 @@ io.on("connection", socket => {
   console.log("A user connected.");
   socket.on("disconnect", () => console.log("A user disconnected."));
   socket.on("login", (username, password) => {
-    db.User.findOne({username: username}).then(res => {
+    db.User.authenticate({username: username}).then(res => {
+
       if(!res) io.emit("login", "User not found.")
+
       else if(res.password === password) io.emit("login", "1")
+
       else io.emit("login", "Wrong password, idiot.");
     }).catch(err => console.log(err));
+
   });
+
 });
 io.listen(3002);
 
