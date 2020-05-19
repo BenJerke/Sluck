@@ -33,24 +33,33 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slcukdb");
 
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 io.on("connection", socket => {
   console.log("A user connected.");
   socket.on("disconnect", () => console.log("A user disconnected."));
+
   socket.on("login", (username, password) => {
-    db.User.findOne({username: username}).then(res => {
-      if(!res) io.emit("login", "User not found.")
-      else if(res.password === password) io.emit("login", "1")
+    db.User.findOne({ username: username }).then(res => {
+      if (!res) io.emit("login", "User not found.")
+      else if (res.password === password) io.emit("login", res._id)
       else io.emit("login", "Wrong password, idiot.");
     }).catch(err => console.log(err));
+  });
+
+  socket.on("signup", (username, password, passwordConf, email) => {
+    if (email && username && password && passwordConf && (password === passwordConf)) {
+      db.User.create({email: email, username: username, password: password, passwordConf: passwordConf}).then(res => {
+        console.log(res);
+      }).catch(err => console.log(err))
+    } else console.log("Passwords don't match.");
   });
 });
 io.listen(3002);
 
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
