@@ -1,5 +1,5 @@
-const mongoose = require("mongoose")
-const bcrypt = require("bcryptjs")
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 const Schema = mongoose.Schema;
 
 //defining user
@@ -14,14 +14,10 @@ const UserSchema = new Schema ({
         type: String,
         unique: true,
         required: true,
+        validate: ""
     },
 
     password: {
-        type: String,
-        required: true
-    },
-
-    passwordConf: {
         type: String,
         required: true
     },
@@ -56,8 +52,8 @@ UserSchema.pre('save', function (next) {
   });
 
 //authenticate input against database
-UserSchema.statics.authenticate = function (email, password, callback) {
-    User.findOne({ email: email })
+UserSchema.statics.authenticate = function (username, password, callback) {
+    User.findOne({ username: username })
       .exec(function (err, user) {
         if (err) {
           return callback(err)
