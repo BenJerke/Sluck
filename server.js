@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 3001;
 const db = require("./models");
 
 
-
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -32,18 +31,6 @@ app.use(routes);
 // Connect to DB
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/");
-
-//database operations
-
-
-//create new channel
-//db.Channel.create({});
-
-//create new post
-//db.Post.create({});
-
-//create new DM
-//db.Message.create({});
 
 
 app.get("/", function(req, res) {
