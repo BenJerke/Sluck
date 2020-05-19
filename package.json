@@ -28,6 +28,7 @@
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.10",
     "path": "^0.12.7",
+    "react-bootstrap": "^1.0.1",
     "socket.io": "^2.3.0"
   }
 }

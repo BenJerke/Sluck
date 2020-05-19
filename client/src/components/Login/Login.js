@@ -94,13 +94,21 @@ class Login extends React.Component {
 
       return (
         <React.Fragment>
+        <header
+        className="signup bounce-5"
+        style={{
+          fontSize: 40,
+          fontFamily: "Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif",
+          padding: 10
+        }}>
+          Sign Up
+        </header>
           <Row
             className='d-flex justify-content-center align-items-center w-100 mt-5'
-            className='userId'
             style={{
-              minHeight: '100%',
+              minHeight: '10%',
               fontSize: 15,
-            }}
+              }}
           >
           <Col>
             {this.state.errors !== null && (
@@ -113,8 +121,11 @@ class Login extends React.Component {
               </Alert>
             )}
             <Form onSubmit={this.handleSubmit}>
-              <Form.Group controlId='username'>
-                <Form.Label >User ID{"\n"}</Form.Label>
+              <Form.Group controlId='username'
+              style={{
+                padding: 6
+              }}>
+                <Form.Label >Username{"\n"}</Form.Label>
                 <Form.Control
                   required
                   type='text'
@@ -122,30 +133,25 @@ class Login extends React.Component {
                   value={this.state.uid}
                   placeholder='Choose a username'
                   onChange={this.handleChange}
+                
                 />
+                <span></span>
                 {this.state.UIDError !== null && (
                   <Form.Control.Feedback
-                    style={{ display: 'block'
+                    style={{ display: 'block',
                   }}
                     type='invalid'
                   >
                     {this.state.UIDError}
                   </Form.Control.Feedback>
                 )}
-                </Form.Group>
-                  <Form.Group controlId='display-name'>
-                    <Form.Label>Name{"\n"}</Form.Label>
-                    <Form.Control
-                      required
-                      type='text'
-                      name='name'
-                      value={this.state.name}
-                      placeholder='What is your name?'
-                      onChange={this.handleChange}
-                    />
+
                   </Form.Group>
-                  <Form.Group controlId='email'>
-                    <Form.Label>Email Address{"\n"}</Form.Label>
+                  <Form.Group controlId='email'
+                  style={{
+                    padding: 6
+                  }}> 
+                    <Form.Label>Email Address:{"\n"}</Form.Label>
                     <Form.Control
                       required
                       type='email'
@@ -154,7 +160,40 @@ class Login extends React.Component {
                       placeholder='Your email address'
                       onChange={this.handleChange}
                     />
+                    <span></span>
                   </Form.Group>
+
+                  <Form.Group
+                  style={{
+                  padding: 6
+                  }}>
+                  <Form.Label>Password:{"\n"}</Form.Label>
+                  <Form.Control
+                  required
+                  type='password'
+                  name='password'
+                  value={this.state.password}
+                  placeholder='Choose a password'
+                  onChange={this.handleChange}
+                  />
+                  <span></span>
+                  </Form.Group>
+                  <Form.Group
+                  style={{
+                  padding: 6
+                  }}>
+                  <Form.Label>Confirm Password:{"\n"}</Form.Label>
+                  <Form.Control
+                  required
+                  type='passwordConfirm'
+                  name='passwordConfirm'
+                  value={this.state.passwordConfirm}
+                  placeholder='Re-enter your password'
+                  onChange={this.handleChange}
+                  />
+                  <span></span>
+                  </Form.Group>
+
                   <Button
                     disabled={this.state.isLoading}
                     variant='primary'

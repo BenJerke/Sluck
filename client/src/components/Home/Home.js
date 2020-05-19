@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -6,7 +6,9 @@ import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert'
 import Spinner from 'react-bootstrap/Spinner'
 import { Redirect, Link } from 'react-router-dom'
-import { CometChat } from '@cometchat-pro/chat';
+import { CometChat } from '@cometchat-pro/chat'
+import "./home.css"
+
 
 
 class Home extends React.Component {
@@ -43,8 +45,12 @@ class Home extends React.Component {
           return (
           <Redirect to={{ pathname: '/channels', user: this.state.user}} /> 
           );
-          return(
-              <div>
+        return(
+            <div>
+                <header
+                className="header bounce-5">
+                 Welcome
+                </header>
                 <Row
         className='d-flex justify-content-center align-items-center w-100 mt-5'
         style={{
@@ -59,24 +65,31 @@ class Home extends React.Component {
           {this.state.error !== null && (
             <Alert variant='danger'>{this.state.error}</Alert>
           )}
+
           <Form onSubmit={this.handleSubmit}>
-            <Form.Group controlId='username'>
+            <Form.Group controlId='username'
+            style={{padding: 10,
+              fontFamily: "Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif"
+            }}>
               <Form.Label>Username{"\n"}</Form.Label>
+              <br></br>
+
               <Form.Control
                 required
                 type='text'
                 value={this.state.username}
-                placeholder='Enter a Username'
+                placeholder='Enter your Username'
                 onChange={this.handleChange}
               />
             </Form.Group>
+          
             <Button
               disabled={this.state.isLoading}
               variant='primary'
               type='submit'
               className='btn-block'
               style={{
-
+                
               }}
             >
               {this.state.isLoading ? (
@@ -107,9 +120,10 @@ class Home extends React.Component {
           </Form>
         </Col>
       </Row>  
-              </div>
-          )
-      }
+          </div>
+        )
+    }
 }
+
 
 export default Home;
