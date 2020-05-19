@@ -9,15 +9,6 @@ import { Redirect, Link } from 'react-router-dom'
 import "./home.css"
 const socket = require('socket.io-client')('http://localhost:3002');
 
-socket.on("login", res => {
-  if(res === "1"){
-    Home.setState({redirect: true});
-  }
-  else{
-    alert(res);
-  };
-});
-
 class Home extends React.Component {
   constructor(prop) {
     super(prop);
@@ -30,6 +21,17 @@ class Home extends React.Component {
       isLoading: false
     };
   }
+  
+  componentDidMount = () => {
+    socket.on("login", res => {
+      if(res === "1"){
+        this.setState({redirect: true});
+      }
+      else{
+        alert(res);
+      };
+    });
+  };
 
   handleChange = e => {
     this.setState({ username: e.target.value });
