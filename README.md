@@ -11,4 +11,4 @@ We store hashed passwords so nobody can raid our database. If they go and do it 
 # SLUCK IS SLICK!
 We've got a front end based on React; a tool built by Mark Zuckerberg built himself! It looks cool and it's fun!
 
-#  ON IN, AND SLUCK IT UP!
+## COME ON IN AND SLUCK IT UP!
