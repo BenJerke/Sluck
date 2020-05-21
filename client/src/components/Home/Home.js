@@ -24,12 +24,14 @@ class Home extends React.Component {
   
   componentDidMount = () => {
     socket.on("login", res => {
-      if(res === "User not found." || res === "Wrong password, idiot.") {
+      if(res.length === 24)  {
+        this.setState({redirect: true});
+        console.log(res);
+      }
+      else {
         alert(res);
         this.refreshPage(true);
-      }
-      else 
-      { console.log(res); this.setState({redirect: true})}
+      };
     });
   }
 
