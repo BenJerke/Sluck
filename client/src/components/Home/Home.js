@@ -92,7 +92,7 @@ class Home extends React.Component {
 
               <Form.Control
                 required
-                type='text'
+                type="text"
                 value={this.state.password}
                 placeholder='Enter your password'
                 onChange={this.handleChange}

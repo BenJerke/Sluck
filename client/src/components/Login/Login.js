@@ -185,7 +185,7 @@ class Login extends React.Component {
                   <Form.Label>Confirm Password:{"\n"}</Form.Label>
                   <Form.Control
                   required
-                  type='passwordConfirm'
+                  type='password'
                   name='passwordConfirm'
                   value={this.state.passwordConfirm}
                   placeholder='Re-enter your password'
