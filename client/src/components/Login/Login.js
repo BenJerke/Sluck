@@ -35,9 +35,22 @@ class Login extends React.Component {
     socket.emit("signup", name, password, passwordConfirm, email);
   };
 
-  
+  componentDidMount = () => {
+    socket.on("signup", res => {
+      if(res.length === 24)  {
+        this.setState({redirect: true})
+        console.log(res);
+      }
+      else {
+        alert(res);
+        this.refreshPage(true);
+      };
+    });
+  }
 
-
+  refreshPage() {
+    window.location.reload(false);
+  }
 
   showErrors = () => {
     const errors = this.state.errors;

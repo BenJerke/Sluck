@@ -9,7 +9,7 @@ const io = require('socket.io')(http);
 const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const db = require("./models");
-
+let id = "";
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -40,28 +40,36 @@ io.on("connection", socket => {
   console.log("A user connected.");
   socket.on("disconnect", () => console.log("A user disconnected."));
   socket.on("login", (username, password) => {
-      db.User.findOne({ username: username }).then(function (res) {
-        if (!res) { io.emit("login", "User not found.")} 
-        else {bcrypt.compare(password, res.password, function (err, result) { 
-              if (result===true) {io.emit("login", res._id); console.log("logged in")}
-              else if (result===false){ io.emit("login", "Wrong password, idiot.")} 
-              else {console.log(err)}
-        }
-      )};
+    db.User.findOne({ username: username }).then(function (res) {
+      if (!res) { io.emit("login", "User not found.") }
+      else {
+        bcrypt.compare(password, res.password, function (err, result) {
+          if (result === true) { id = res._id; io.emit("login", id); console.log("logged in") }
+          else if (result === false) { io.emit("login", "Wrong password, idiot.") }
+          else { io.emit("login", "There's been an error: " + err) }
+        });
+      };
     });
   });
 
   socket.on("signup", (username, password, passwordConf, email) => {
     if (email && username && password && passwordConf && (password === passwordConf)) {
-      db.User.create({email: email, username: username, password: password, passwordConf: passwordConf}).then(res => {
-        console.log(res);
-      }).catch(err => console.log(err))
-    } else console.log("Passwords don't match.");
+      db.User.create({ email: email, username: username, password: password, passwordConf: passwordConf }).then(res => {
+        id = res._id; io.emit("signup", id);
+      }).catch(err => io.emit("signup", "There's been an error: " + err));
+    } else io.emit("signup", "Passwords don't match.");
   });
-  
-  socket.on("message", (username, body, channel) => {
-    if (username && body && channel){
-      db.Post.create({author: username, body: body, location: channel}).then(res => {
+
+  socket.on("user", () => {
+    console.log(id);
+    io.emit("user", id);
+    //io.emit("messages", )
+  });
+
+  socket.on("message", body => {
+    console.log("here");
+    if (body) {
+      db.Post.create({ author: id, body: body, location: ' ' }).then(res => {
         console.log(res);
       }).catch(err => console.log(err))
     } else console.log("Wait, what? You're not supposed to do that. Get outta here!");
