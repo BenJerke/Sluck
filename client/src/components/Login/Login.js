@@ -7,7 +7,7 @@ import Alert from 'react-bootstrap/Alert'
 import Spinner from 'react-bootstrap/Spinner'
 import { Redirect, Link } from 'react-router-dom'
 import "./login.css"
-const socket = require('socket.io-client')('http://localhost:3002');
+const socket = require('socket.io-client')(process.env.SOCKET_PORT);
 
 class Login extends React.Component {
   constructor(props) {
