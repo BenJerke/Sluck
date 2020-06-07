@@ -78,7 +78,7 @@ io.on("connection", socket => {
 
 
 
-io.listen(3002);
+io.listen(process.env.SOCKET_PORT || 3002);
 
 // Start the API server
 app.listen(PORT, function () {
